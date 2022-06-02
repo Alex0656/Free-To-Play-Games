@@ -9,24 +9,19 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.BitSet;
 
 @Entity
-@Table(name = "users")
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class UserEntity {
+@Table(name = "trading_floors")
+public class TradingFloorsEntity {
 
     @Id
-    @Column
-    private String email;
-
     @Column
     private String name;
 
     @Column
-    private String password;
-
-    @Column
-    private String authority;
+    private BitSet img;
 }

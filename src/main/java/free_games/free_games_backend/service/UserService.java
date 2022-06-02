@@ -21,18 +21,23 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Service
-@RequiredArgsConstructor
 public class UserService implements UserDetailsService {
 
-    private final UserRepository userRepository;
 
-    @Autowired
-    private UserConverter userConverter;
+    private final UserRepository userRepository;
+    private final UserConverter userConverter;
 
     @Value("${csv.users.path}")
     private  String csvUserPath;
 
+    @Autowired
+    public UserService(UserRepository userRepository, UserConverter userConverter) {
+        this.userConverter = userConverter;
+        this.userRepository = userRepository;
+    }
+
     @Override
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String email) {
         return userRepository.findById(email).
                 map(user -> User.builder()
@@ -42,6 +47,8 @@ public class UserService implements UserDetailsService {
                         .build())
                         .orElseThrow(() -> new UsernameNotFoundException("Пользователя не существует"));
     }
+
+
 
     @Transactional
     public UserDto save(UserDto userDto) {
@@ -61,7 +68,7 @@ public class UserService implements UserDetailsService {
 
     @Transactional(readOnly = true)
     public UserDto get(String id) {
-        return userRepository.findById(id).map(userEntity -> userConverter.toDto(userEntity))
+        return userRepository.findById(id).map(userConverter::toDto)
                 .orElseThrow(() -> new UsernameNotFoundException("Пользователь не зарегистрирован"));
     }
 
@@ -69,7 +76,7 @@ public class UserService implements UserDetailsService {
     public List<UserDto> getAll() {
         return StreamSupport
                 .stream(userRepository.findAll().spliterator(), false)
-                .map(entity -> userConverter.toDto(entity))
+                .map(userConverter::toDto)
                 .collect(Collectors.toList());
     }
 

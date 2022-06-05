@@ -1,0 +1,14 @@
+spring:
+  flyway:
+    locations: classpath:migrations
+    url: jdbc:postgresql://localhost:5432/games
+    user: games_dev
+    password: ent11
+  datasource:
+    url: jdbc:postgresql://localhost:5432/games
+    username: games_dev
+    password: ent11
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate

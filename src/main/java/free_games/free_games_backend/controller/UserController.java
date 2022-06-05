@@ -5,9 +5,8 @@ import free_games.free_games_backend.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -22,35 +21,28 @@ public class UserController {
 
     @PreAuthorize("hasAuthority('SUPER_ADMIN')")
     @PostMapping
-    public ResponseEntity<UserDto> save(@Valid @RequestBody UserDto userDto) {
+    public ResponseEntity<UserDto> save(@Valid @RequestBody UserDto userDto, Authentication authentication) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .header("user-id", userDto.getEmail())
-                .body(userService.save(userDto));
+                .header("location", userDto.getEmail())
+                .body(userService.save(userDto, authentication));
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'SUPER_ADMIN')")
     @GetMapping(value = "/{id}")
-    public ResponseEntity<UserDto> get(@PathVariable String id) {
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .header("user-id", id)
-                .body(userService.get(id));
+    public UserDto get(@PathVariable String id) {
+        return userService.get(id);
     }
 
     @PreAuthorize("hasAnyAuthority('ADMIN', 'SUPER_ADMIN')")
     @GetMapping
-    public ResponseEntity<List<UserDto>> getAll() {
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(userService.getAll());
+    public List<UserDto> getAll() {
+        return userService.getAll();
     }
+
     @DeleteMapping(value = "/{id}")
     @PreAuthorize("hasAuthority('SUPER_ADMIN')")
-    public ResponseEntity<String> delete(@PathVariable String id) {
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .header("user-id", id)
-                .body(userService.delete(id));
+    public String delete(@PathVariable String id, Authentication authentication) {
+        return userService.delete(id, authentication);
     }
 }

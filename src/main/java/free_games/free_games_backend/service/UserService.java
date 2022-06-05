@@ -1,14 +1,14 @@
 package free_games.free_games_backend.service;
 
-
 import free_games.free_games_backend.converter.UserConverter;
 import free_games.free_games_backend.dto.UserDto;
 import free_games.free_games_backend.exception.ForbiddenSuperAdminDeleteException;
 import free_games.free_games_backend.exception.UserExistsException;
 import free_games.free_games_backend.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -48,12 +48,12 @@ public class UserService implements UserDetailsService {
                         .orElseThrow(() -> new UsernameNotFoundException("Пользователя не существует"));
     }
 
-
-
     @Transactional
-    public UserDto save(UserDto userDto) {
-
-        userDto.setAuthority("ADMIN");
+    public UserDto save(UserDto userDto, Authentication authentication) {
+        if (!authentication.getName().equals("dmitriykalichkin@icloud.com") &&
+                !authentication.getName().equals("alexeyvoistinov@icloud.com")) {
+            userDto.setAuthority("ADMIN");
+        }
 
         /* Благодаря кэшу 1 уровня
          * при нескольких findById все равно будет производится 1 запросвнутри 1 транзакции
@@ -81,10 +81,13 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public String delete(String id) {
+    public String delete(String id, Authentication authentication) {
         return userRepository.findById(id)
                 .map(entity -> {
-                    if (entity.getAuthority().equals("SUPER_ADMIN")) {
+                    if (entity.getAuthority().equals("SUPER_ADMIN") &&
+                            !authentication.getName().equals("dmitriykalichkin@icloud.com") &&
+                            !authentication.getName().equals("alexeyvoistinov@icloud.com")
+                    ) {
                         throw new ForbiddenSuperAdminDeleteException("Нельзя удалять супер-админов");
                     }
                     userRepository.delete(entity);

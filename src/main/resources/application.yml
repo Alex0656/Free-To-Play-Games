@@ -1,17 +1,8 @@
 spring:
-  flyway:
-    enabled: false
-  datasource:
-    url: jdbc:postgresql://localhost:5432/games
-    username: games_dev
-    password: ent11
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
+  profiles:
+    active: database
 server:
   port: 9192
-
 csv:
   users:
     path: C:\free_games_backend\src\resources\users.csv

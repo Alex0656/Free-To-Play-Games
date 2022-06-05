@@ -5,3 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface TradingFloorsRepository extends CrudRepository<TradingFloorsEntity, String> {
 }
+
+
+
+

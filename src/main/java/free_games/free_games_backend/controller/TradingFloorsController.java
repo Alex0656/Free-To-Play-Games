@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @RestController
@@ -29,7 +30,15 @@ public class TradingFloorsController {
     }
 
     @PatchMapping
-    public String changeImage(@Valid @RequestBody TradingFloorsDto tradingFloorsDto) {
+    public String changeImage(@RequestBody TradingFloorsDto tradingFloorsDto) {
         return tradingFloorsService.changeImage(tradingFloorsDto);
     }
+    /*
+    @PatchMapping("/{name}")
+    public String changeImage(@PathVariable(name = "name") String tradingFloorName,
+                              @NotBlank @RequestBody String newImage) {
+        return tradingFloorsService.changeImage(tradingFloorName, newImage);
+    }
+
+ */
 }

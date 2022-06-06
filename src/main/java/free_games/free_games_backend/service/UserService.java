@@ -5,6 +5,7 @@ import free_games.free_games_backend.dto.UserDto;
 import free_games.free_games_backend.exception.ForbiddenSuperAdminDeleteException;
 import free_games.free_games_backend.exception.UserExistsException;
 import free_games.free_games_backend.repository.UserRepository;
+import free_games.free_games_backend.type.RoleType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
@@ -16,13 +17,13 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.security.Principal;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Service
 public class UserService implements UserDetailsService {
-
 
     private final UserRepository userRepository;
     private final UserConverter userConverter;
@@ -43,16 +44,16 @@ public class UserService implements UserDetailsService {
                 map(user -> User.builder()
                         .username(user.getEmail())
                         .password(user.getPassword())
-                        .authorities(user.getAuthority())
+                        .roles(user.getRole().toString())
                         .build())
                         .orElseThrow(() -> new UsernameNotFoundException("Пользователя не существует"));
     }
 
     @Transactional
-    public UserDto save(UserDto userDto, Authentication authentication) {
+    public UserDto save(UserDto userDto, Principal authentication) {
         if (!authentication.getName().equals("dmitriykalichkin@icloud.com") &&
                 !authentication.getName().equals("alexeyvoistinov@icloud.com")) {
-            userDto.setAuthority("ADMIN");
+            userDto.setRole(RoleType.ADMIN);
         }
 
         /* Благодаря кэшу 1 уровня
@@ -81,10 +82,10 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public String delete(String id, Authentication authentication) {
+    public String delete(String id, Principal authentication) {
         return userRepository.findById(id)
                 .map(entity -> {
-                    if (entity.getAuthority().equals("SUPER_ADMIN") &&
+                    if (entity.getRole().equals(RoleType.SUPER_ADMIN) &&
                             !authentication.getName().equals("dmitriykalichkin@icloud.com") &&
                             !authentication.getName().equals("alexeyvoistinov@icloud.com")
                     ) {

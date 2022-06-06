@@ -13,12 +13,15 @@ import javax.annotation.PostConstruct;
 import java.util.Objects;
 
 @Component
-@AllArgsConstructor
 public class UserConverter {
     private final PasswordEncoder passwordEncoder;
+    private ModelMapper mapper;
 
     @Autowired
-    private ModelMapper mapper;
+    public UserConverter(PasswordEncoder passwordEncoder, ModelMapper mapper) {
+        this.passwordEncoder = passwordEncoder;
+        this.mapper = mapper;
+    }
 
     public void convertPasswordToEntity(UserDto userDto, UserEntity userEntity) {
         userEntity.setPassword(passwordEncoder.encode(userDto.getPassword()));

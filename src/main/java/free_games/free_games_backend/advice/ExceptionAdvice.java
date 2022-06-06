@@ -3,6 +3,8 @@ package free_games.free_games_backend.advice;
 
 import free_games.free_games_backend.dto.ErrorDto;
 import free_games.free_games_backend.exception.ForbiddenSuperAdminDeleteException;
+import free_games.free_games_backend.exception.TradingFloorExistsException;
+import free_games.free_games_backend.exception.TradingFloorNotExistsException;
 import free_games.free_games_backend.exception.UserExistsException;
 import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.http.HttpStatus;
@@ -31,7 +33,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 
      */
 
-    @ExceptionHandler(UsernameNotFoundException.class)
+    @ExceptionHandler({UsernameNotFoundException.class, TradingFloorNotExistsException.class})
     public ResponseEntity<ErrorDto> handleUserNotFound(Exception ex) {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
@@ -42,7 +44,7 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
                 ));
     }
 
-    @ExceptionHandler(UserExistsException.class)
+    @ExceptionHandler({UserExistsException.class, TradingFloorExistsException.class})
     public ResponseEntity<ErrorDto> handleUserExists(Exception ex) {
         return ResponseEntity
                 .status(HttpStatus.CONFLICT)

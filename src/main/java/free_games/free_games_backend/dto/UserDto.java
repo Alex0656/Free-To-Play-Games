@@ -1,11 +1,13 @@
 package free_games.free_games_backend.dto;
 
+import free_games.free_games_backend.type.RoleType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,5 +22,6 @@ public class UserDto {
     @NotBlank(message = "Пароль является обязательным полем")
     private String password;
 
-    private String authority;
+    @NotNull
+    private RoleType role;
 }

@@ -20,7 +20,7 @@ public class TradingFloorsEntity {
     private String name;
 
     @Column
-    private BitSet img;
+    private String img;
 }
 
 

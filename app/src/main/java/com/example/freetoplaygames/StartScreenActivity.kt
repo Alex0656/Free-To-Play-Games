@@ -15,8 +15,8 @@ class StartScreenActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this,R.color.white)
     }
 
-    fun onClickGoPlatform(view: View){
-        val intent = Intent(this, Platform::class.java)
+    fun onClickGoManagerProfileActivity(view: View){
+        val intent = Intent(this, ManagerProfileActivity::class.java)
         startActivity(intent)
     }
 }

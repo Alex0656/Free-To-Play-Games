@@ -8,6 +8,9 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_discount">Discount</string>
     <string name="menu_game">Game giveaway</string>
+    <string name="subnautica">Subnautica</string>
+    <string name="far_cry">Far Cry 5</string>
+    <string name="rust">Rust</string>
 
 
     <string name="Steam">Steam</string>

@@ -2,5 +2,9 @@
     <string name="app_name">Free To Play Games</string>
     <string name="start">Добро пожаловать в Free to Play Games</string>
     <string name="get_started">GET STARTED</string>
+<<<<<<< HEAD
     <string name="info_01"> С помощью нашего приложения вы всегда будете в курсе последних раздач и акций! Для вас мы предоставляем легко доступную и актуальную информацию с различных игровых площадок. </string>
+=======
+    <string name="info_01"> С помощью нашего приложения вы всегда будете в курсе последних раздач и акций! Для вас мы предоставляем легко доступную и актуальную информацию с различных игровых площадок! </string>
+>>>>>>> start_screen
 </resources>

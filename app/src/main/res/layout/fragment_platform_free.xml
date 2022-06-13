@@ -1,20 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back_free"
     tools:context=".free.PlatformFreeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Steam"
+        style="@style/Steam_style"
+        android:layout_marginTop="48dp"
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="165dp"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</FrameLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Origin"
+        style="@style/Origin_style"
+        android:layout_marginTop="5dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Steam" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Epic"
+        style="@style/Epic_Games_style"
+        android:layout_marginTop="5dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Origin" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/GOG"
+        style="@style/GOG.com_style"
+        android:layout_marginTop="5dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Epic" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Battle"
+        style="@style/Battle.net_style"
+        android:layout_marginTop="5dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/GOG" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/XBOX"
+        style="@style/XBOX_style"
+        android:layout_marginTop="5dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Battle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/PS4"
+        style="@style/PS4_style"
+        android:layout_marginTop="5dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/XBOX" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

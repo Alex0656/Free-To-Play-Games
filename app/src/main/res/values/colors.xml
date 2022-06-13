@@ -10,4 +10,15 @@
     <color name="button_style">#96919A</color>
     <color name="silver">#A1A4B2</color>
     <color name="my_black">#3F414E</color>
+
+
+    <color name="back_free">#F0F3F2</color>
+    <color name="back_discount">#587276</color>
+    <color name="Steam">#A3AAB9</color>
+    <color name="Origin">#FF8170</color>
+    <color name="Epic">#ADADAD</color>
+    <color name="GOG">#9A58AC</color>
+    <color name="Battle">#359DC3</color>
+    <color name="XBOX">#61B82B</color>
+    <color name="PS4">#3E6E9F</color>
 </resources>

@@ -8,4 +8,13 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_discount">Discount</string>
     <string name="menu_game">Game giveaway</string>
+
+
+    <string name="Steam">Steam</string>
+    <string name="Origin">Origin</string>
+    <string name="Epic">Epic Games</string>
+    <string name="GOG">GOG.com</string>
+    <string name="Battle">Battle.net</string>
+    <string name="XBOX">XBOX</string>
+    <string name="PS4">PS4</string>
 </resources>

@@ -9,7 +9,10 @@ import org.springframework.context.annotation.Bean;
 public class FreeGamesBackendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FreeGamesBackendApplication.class, args);
+        var applicationContext = SpringApplication.run(FreeGamesBackendApplication.class, args);
+        /*for (String name: applicationContext.getBeanDefinitionNames()) {
+            System.out.println(name);
+        }*/
     }
 
     @Bean

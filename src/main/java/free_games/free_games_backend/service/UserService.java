@@ -7,6 +7,7 @@ import free_games.free_games_backend.exception.UserExistsException;
 import free_games.free_games_backend.repository.UserRepository;
 import free_games.free_games_backend.type.RoleType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
@@ -36,6 +37,7 @@ public class UserService implements UserDetailsService {
         this.userConverter = userConverter;
         this.userRepository = userRepository;
     }
+
 
     @Override
     @Transactional(readOnly = true)

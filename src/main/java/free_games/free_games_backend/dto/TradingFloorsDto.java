@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 @Data
@@ -16,4 +17,9 @@ public class TradingFloorsDto {
 
     @NotBlank(message = "У площадки должен быть логотип")
     private String img;
+
+    @NotBlank(message = "Ссылка является обязательным полем")
+    private String link;
+
+
 }

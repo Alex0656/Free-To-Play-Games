@@ -30,7 +30,7 @@ public class TradingFloorsController {
     }
 
     @PatchMapping
-    public String changeImage(@RequestBody TradingFloorsDto tradingFloorsDto) {
+    public String update(@RequestBody TradingFloorsDto tradingFloorsDto) {
         return tradingFloorsService.changeImage(tradingFloorsDto);
     }
     /*
@@ -39,6 +39,5 @@ public class TradingFloorsController {
                               @NotBlank @RequestBody String newImage) {
         return tradingFloorsService.changeImage(tradingFloorName, newImage);
     }
-
- */
+     */
 }

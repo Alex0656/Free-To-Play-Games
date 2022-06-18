@@ -5,9 +5,12 @@
       <map>
         <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
         <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
+        <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/drawable/ic_sub.xml" value="0.189" />
+        <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/layout/activity_description.xml" value="0.21227364185110664" />
         <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/layout/activity_manager_profile.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/layout/activity_platform.xml" value="0.25" />
+        <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/layout/activity_platform_free.xml" value="0.25" />
         <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/layout/activity_start_screen.xml" value="0.2" />
         <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/layout/activity_start_scrin.xml" value="0.264" />
         <entry key="..\:/Users/wayww/AndroidStudioProjects/FreeToPlayGames/app/src/main/res/layout/fragment_free_steam.xml" value="0.2269021739130435" />

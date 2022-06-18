@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.commit
+import com.example.freetoplaygames.PlatformFreeActivity
 import com.example.freetoplaygames.R
 import com.example.freetoplaygames.databinding.FragmentPlatformFreeBinding
 import com.example.freetoplaygames.discount.PlatformDiscountFragment
@@ -33,16 +34,8 @@ class PlatformFreeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.Steam.setOnClickListener {
-
-            val transaction = activity?.supportFragmentManager?.beginTransaction()
-            transaction?.replace(R.id.Steam, FreeSteamFragment())
-            transaction?.disallowAddToBackStack()
-            transaction?.commit()
-            /*
-            var fragment = FreeSteamFragment()
-            //childFragmentManager.beginTransaction().replace(R.id.Steam,ChildFragment.getInstance()).commit()
-            childFragmentManager.beginTransaction().replace(R.id.Steam,fragment).commit()
-            */
+            val intent = Intent(context, PlatformFreeActivity::class.java)
+            startActivity(intent)
         }
 
 

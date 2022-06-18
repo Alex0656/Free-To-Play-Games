@@ -10,7 +10,9 @@
         <item name="android:fontFamily">@font/roboto_bold</item>
         <item name="android:gravity">center</item>
     </style>
-
+    <style name="text_24sp_bold_white" parent="text_24sp_bold">
+        <item name="android:textColor">@color/text01</item>
+    </style>
 
     <style name="roboto_reg_16">
         <item name="android:layout_width">match_parent</item>
@@ -87,5 +89,20 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginHorizontal">29dp</item>
+    </style>
+
+    <style name="Button_04" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:paddingTop">22dp</item>
+        <item name="android:paddingBottom">22dp</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:alpha">0.85</item>
+        <item name="backgroundTint">@color/button_free</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">29dp</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
     </style>
 </resources>

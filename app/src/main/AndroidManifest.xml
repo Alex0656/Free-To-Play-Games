@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FreeToPlayGames">
         <activity
+            android:name=".Description2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".DiscountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoryDiscountActivity"
+            android:exported="false" />
+        <activity
             android:name=".DescriptionActivity"
             android:exported="false" />
         <activity

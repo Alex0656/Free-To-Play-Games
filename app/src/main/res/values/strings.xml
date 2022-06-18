@@ -8,15 +8,19 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_discount">Discount</string>
     <string name="menu_game">Game giveaway</string>
-    <string name="subnautica">Subnautica</string>
-    <string name="far_cry">Far Cry 5</string>
-    <string name="rust">Rust</string>
+    <string name="subnautica">Subnautica 75%</string>
+    <string name="far_cry">Far_Cry_5 50%</string>
+    <string name="rust">Rust 30%</string>
     <string name="info">Информация об игре</string>
-    <string name="genre">Жарн:</string>
+    <string name="genre">Жанр:</string>
     <string name="teg">Теги:</string>
     <string name="data">Дата выхода:</string>
     <string name="rating">Рейтинг:</string>
     <string name="desc">Краткое описание</string>
+
+    <string name="publisher">Publisher weekend up to 80% off</string>
+    <string name="special_offers">Специльные предложения</string>
+    <string name="stocks">Акции дня</string>
 
     <string name="Steam">Steam</string>
     <string name="Origin">Origin</string>

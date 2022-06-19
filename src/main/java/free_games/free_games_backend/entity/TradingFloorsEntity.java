@@ -16,6 +16,9 @@ public class TradingFloorsEntity {
 
     @Id
     @Column
+    private String id;
+
+    @Column
     private String name;
 
     @Column
